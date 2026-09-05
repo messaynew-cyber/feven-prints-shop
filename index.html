@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo books, photo prints & gifts – create online | Feven's Prints</title>
+<meta name="description" content="Make the most of your favourite photos! Create photo books, photo calendars, photo greeting cards and much more with Feven's Prints in Addis Ababa. It's simple!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brand-red: #e10032;
+  --brand-red-dark: #c4002b;
+  --teal-dark: #004460;
+  --teal-mid: #00577a;
+  --yellow-light: #dcdf77;
+  --amber: #ffb800;
+  --gray-100: #f8f9fa;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-600: #6c757d;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --white: #ffffff;
+  --dark: #0b1420;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--gray-900);
+  background: var(--white);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 20px; }
+
+/* ===== TOP UTILITY BAR ===== */
+.topbar {
+  background: var(--teal-dark);
+  color: #fff;
+  font-size: 13px;
+  padding: 8px 0;
+}
+.topbar .container { display: flex; justify-content: space-between; align-items: center; }
+.topbar-left { display: flex; gap: 24px; }
+.topbar-left a { color: rgba(255,255,255,0.9); display: inline-flex; align-items: center; gap: 6px; transition: color .2s; }
+.topbar-left a:hover { color: #fff; }
+.topbar-right { display: flex; gap: 20px; align-items: center; }
+.topbar-right a { color: rgba(255,255,255,0.9); display: inline-flex; align-items: center; gap: 6px; transition: color .2s; }
+.topbar-right a:hover { color: #fff; }
+
+/* ===== HEADER / MAIN NAV ===== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+.header-main {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 12px 20px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+.logo h1 { font-size: 24px; font-weight: 900; letter-spacing: -0.5px; }
+.logo h1 span { color: var(--brand-red); }
+.logo .logo-sub { font-size: 11px; color: var(--gray-600); letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+
+.search-box { flex: 1; max-width: 560px; position: relative; }
+.search-box input {
+  width: 100%;
+  padding: 11px 16px 11px 44px;
+  border: 2px solid var(--gray-300);
+  border-radius: 50px;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color .2s;
+}
+.search-box input:focus { border-color: var(--brand-red); }
+.search-box .search-icon {
+  position: absolute; left: 16px; top: 50%; transform: translateY(-50%);
+  color: var(--gray-600); font-size: 18px; pointer-events: none;
+}
+.header-actions { display: flex; gap: 18px; align-items: center; margin-left: auto; }
+.header-action {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  cursor: pointer; color: var(--gray-800); transition: color .2s;
+}
+.header-action:hover { color: var(--brand-red); }
+.header-action .icon { font-size: 22px; }
+.header-action .label { font-size: 11px; font-weight: 600; }
+
+/* ===== MEGA NAV ===== */
+.main-nav {
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+.nav-list {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+}
+.nav-item { position: relative; }
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-900);
+  cursor: pointer;
+  transition: color .2s;
+  white-space: nowrap;
+}
+.nav-link:hover { color: var(--brand-red); }
+.nav-link .dropdown-arrow { font-size: 10px; opacity: 0.6; }
+.nav-link.nav-sale { color: var(--brand-red); }
+.nav-badge {
+  display: inline-block; font-size: 9px; font-weight: 800;
+  background: var(--yellow-light); color: var(--teal-dark);
+  padding: 2px 6px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.5px;
+  margin-left: 4px;
+}
+
+/* Mega menu dropdown */
+.dropdown {
+  position: absolute;
+  top: 100%; left: 0;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  border-top: 3px solid var(--brand-red);
+  display: none;
+  min-width: 260px;
+  z-index: 100;
+  padding: 16px 0;
+}
+.nav-item:hover .dropdown { display: block; }
+.dropdown a {
+  display: block;
+  padding: 8px 24px;
+  font-size: 14px;
+  color: var(--gray-800);
+  transition: all .15s;
+  white-space: nowrap;
+}
+.dropdown a:hover { color: var(--brand-red); background: var(--gray-100); }
+.dropdown .dropdown-head {
+  font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--gray-600); padding: 4px 24px 8px;
+}
+.dropdown .show-all {
+  font-weight: 700; color: var(--brand-red);
+  border-top: 1px solid var(--gray-200); margin-top: 8px; padding-top: 10px;
+}
+.dropdown .dropdown-subcat {
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px;
+  color: var(--teal-dark); padding: 12px 24px 4px;
+}
+
+/* ===== HERO CAROUSEL ===== */
+.hero-wrap { position: relative; background: var(--gray-100); }
+.hero-carousel { position: relative; max-width: 1600px; margin: 0 auto; overflow: hidden; }
+.hero-slides { display: flex; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+.hero-slide {
+  min-width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 60px;
+  min-height: 480px;
+}
+.hero-bg-overlay { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.hero-content { position: relative; z-index: 2; max-width: 460px; }
+.hero-badge-offer {
+  display: inline-block; background: var(--yellow-light); color: var(--teal-dark);
+  font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px;
+  padding: 4px 12px; border-radius: 20px; margin-bottom: 16px;
+}
+.hero-content h2 {
+  font-size: 42px; font-weight: 900; line-height: 1.1; letter-spacing: -1px;
+  color: var(--dark); margin-bottom: 12px;
+}
+.hero-content p {
+  font-size: 16px; color: var(--gray-800); margin-bottom: 24px; line-height: 1.6;
+}
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--brand-red); color: #fff;
+  padding: 13px 32px; border-radius: 50px;
+  font-size: 15px; font-weight: 700;
+  transition: background .2s, transform .15s;
+}
+.hero-cta:hover { background: var(--brand-red-dark); }
+.hero-cta:active { transform: scale(0.97); }
+.hero-image-side { position: relative; z-index: 2; max-width: 46%; }
+.hero-image-side img { border-radius: 16px; box-shadow: 0 20px 50px rgba(0,0,0,0.15); }
+
+/* Carousel controls */
+.carousel-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%;
+  background: #fff; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer; z-index: 10;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--gray-800);
+  transition: all .2s;
+}
+.carousel-arrow:hover { background: var(--brand-red); color: #fff; }
+.carousel-arrow.prev { left: 20px; }
+.carousel-arrow.next { right: 20px; }
+.carousel-dots {
+  position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 10;
+}
+.carousel-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(0,0,0,0.25); border: none; cursor: pointer;
+  transition: all .2s;
+}
+.carousel-dot.active { background: var(--brand-red); transform: scale(1.3); }
+
+/* ===== OFFER BAR ===== */
+.offer-bar {
+  background: linear-gradient(135deg, var(--teal-dark), var(--teal-mid));
+  color: #fff;
+  text-align: center;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 600;
+}
+.offer-bar a { text-decoration: underline; color: var(--yellow-light); font-weight: 700; }
+
+/* ===== CATEGORY TILES ===== */
+.section-head {
+  text-align: center;
+  padding: 20px 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-head h2 { font-size: 32px; font-weight: 900; letter-spacing: -0.8px; }
+.section-head .see-all { color: var(--brand-red); font-weight: 700; font-size: 14px; }
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 20px 0 40px;
+}
+.cat-tile {
+  display: block;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow .25s;
+  position: relative;
+}
+.cat-tile:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
+.cat-tile .img-wrap { overflow: hidden; aspect-ratio: 4/3; position: relative; }
+.cat-tile .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.cat-tile:hover .img-wrap img { transform: scale(1.05); }
+.cat-tile .discount-ribbon {
+  position: absolute; top: 14px; left: 14px;
+  background: var(--brand-red); color: #fff;
+  font-size: 12px; font-weight: 800;
+  padding: 4px 12px; border-radius: 20px; z-index: 2;
+}
+.cat-tile .new-ribbon {
+  position: absolute; top: 14px; left: 14px;
+  background: var(--teal-dark); color: #fff;
+  font-size: 12px; font-weight: 800;
+  padding: 4px 12px; border-radius: 20px; z-index: 2;
+}
+.cat-tile .tile-body { padding: 18px; }
+.cat-tile .tile-title { font-size: 18px; font-weight: 800; margin-bottom: 6px; }
+.cat-tile .tile-desc { font-size: 14px; color: var(--gray-600); margin-bottom: 10px; line-height: 1.5; }
+.cat-tile .price-row { display: flex; gap: 10px; align-items: baseline; }
+.cat-tile .price { font-size: 17px; font-weight: 800; color: var(--brand-red); }
+.cat-tile .price-old { font-size: 14px; color: var(--gray-600); text-decoration: line-through; }
+.cat-tile .save-up-to { font-size: 13px; color: var(--gray-800); font-weight: 600; }
+
+/* ===== PROMO FULL BANNER ===== */
+.promo-banner {
+  background: linear-gradient(135deg, var(--dark), var(--teal-dark));
+  color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 48px;
+  position: relative;
+}
+.promo-banner .promo-code {
+  display: inline-block;
+  background: var(--yellow-light);
+  color: var(--teal-dark);
+  font-size: 22px; font-weight: 900;
+  letter-spacing: 4px;
+  padding: 10px 24px;
+  border-radius: 10px;
+  margin-top: 12px;
+}
+.promo-banner .promo-visual img { border-radius: 12px; max-height: 280px; object-fit: cover; }
+
+/* ===== PRODUCT BANDS ===== */
+.band {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  padding: 30px 0;
+}
+.band-card {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 20px;
+  transition: box-shadow .25s;
+}
+.band-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+.band-card .band-img { border-radius: 12px; overflow: hidden; margin-bottom: 14px; }
+.band-card .band-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.band-card h3 { font-size: 17px; font-weight: 800; margin-bottom: 6px; }
+.band-card p { font-size: 14px; color: var(--gray-600); margin-bottom: 10px; }
+
+/* ===== FEATURES / HOW IT WORKS ===== */
+.steps-section { background: var(--gray-100); padding: 50px 0; margin: 30px 0; }
+.steps-section h2 { text-align: center; font-size: 32px; font-weight: 900; letter-spacing: -0.5px; margin-bottom: 10px; }
+.steps-sub { text-align: center; color: var(--gray-600); max-width: 600px; margin: 0 auto 40px; font-size: 15px; }
+.steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1000px; margin: 0 auto; }
+.step-item { text-align: center; }
+.step-num {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--brand-red); color: #fff;
+  font-size: 22px; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px;
+}
+.step-item h3 { font-size: 17px; font-weight: 800; margin-bottom: 8px; }
+.step-item p { font-size: 14px; color: var(--gray-600); max-width: 280px; margin: 0 auto; line-height: 1.6; }
+
+/* ===== TRUST / TESTIMONIALS ===== */
+.trust-bar {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  align-items: center;
+  padding: 30px 0;
+  flex-wrap: wrap;
+}
+.trust-item { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; }
+.trust-item .t-icon { color: var(--brand-red); font-size: 24px; }
+
+/* ===== OFFERS SECTION with layered discounts ===== */
+.offers-box {
+  background: #fff;
+  border: 1px solid var(--gray-200);
+  border-radius: 20px;
+  padding: 36px;
+  margin: 30px 0;
+}
+.offers-box h3 { font-size: 22px; font-weight: 900; margin-bottom: 20px; }
+.offer-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.offer-cell {
+  border: 1px solid var(--gray-300);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.offer-discount { font-size: 34px; font-weight: 900; color: var(--brand-red); }
+.offer-discount span { font-size: 16px; font-weight: 700; }
+.offer-label { font-size: 14px; font-weight: 700; }
+.offer-small { font-size: 12px; color: var(--gray-600); }
+
+/* ===== NEWSLETTER ===== */
+.newsletter {
+  background: var(--teal-dark);
+  color: #fff;
+  padding: 50px 40px;
+  border-radius: 20px;
+  margin: 40px 0;
+  text-align: center;
+}
+.newsletter h2 { font-size: 28px; font-weight: 900; margin-bottom: 10px; }
+.newsletter p { opacity: 0.9; margin-bottom: 24px; font-size: 15px; }
+.newsletter-form { display: flex; justify-content: center; gap: 10px; max-width: 480px; margin: 0 auto; }
+.newsletter-form input {
+  flex: 1; padding: 13px 20px; border: none; border-radius: 50px;
+  font-size: 15px; font-family: inherit; outline: none;
+}
+.newsletter-form button {
+  background: var(--brand-red); border: none; color: #fff;
+  padding: 13px 30px; border-radius: 50px;
+  font-size: 15px; font-weight: 700; cursor: pointer; transition: background .2s;
+}
+.newsletter-form button:hover { background: var(--brand-red-dark); }
+
+/* ===== FOOTER ===== */
+.site-footer {
+  background: var(--dark);
+  color: #aab4c0;
+  padding: 60px 0 0;
+  margin-top: 50px;
+  font-size: 14px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  padding-bottom: 40px;
+}
+.footer-col h4 {
+  color: #fff; font-size: 15px; font-weight: 800;
+  margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 8px; }
+.footer-col ul a { transition: color .2s; }
+.footer-col ul a:hover { color: var(--brand-red); }
+.footer-col.about .logo-alt { font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 16px; }
+.footer-col.about .logo-alt span { color: var(--brand-red); }
+.footer-col.about p { line-height: 1.7; margin-bottom: 14px; }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+}
+.footer-payments { display: flex; gap: 10px; font-size: 11px; font-weight: 700; }
+.pay-badge {
+  background: rgba(255,255,255,0.1); padding: 6px 10px; border-radius: 8px; letter-spacing: 0.5px;
+}
+
+/* ===== MOBILE / RESPONSIVE ===== */
+.mobile-menu-toggle { display: none; cursor: pointer; font-size: 24px; padding: 8px; }
+.mobile-nav { display: none; background: #fff; border-bottom: 1px solid var(--gray-200); padding: 16px 20px; }
+.mobile-nav a { display: block; padding: 10px 0; font-weight: 600; border-bottom: 1px solid var(--gray-100); }
+.mobile-nav a:last-child { border-bottom: none; }
+
+@media (max-width: 1024px) {
+  .search-box { display: none; }
+  .main-nav { display: none; }
+  .mobile-menu-toggle { display: block; margin-right: 16px; }
+  .mobile-nav.open { display: block; }
+  .hero-slide { flex-direction: column; padding: 40px 20px; min-height: auto; text-align: center; gap: 28px; }
+  .hero-content { max-width: 100%; }
+  .hero-image-side { max-width: 100%; }
+  .hero-content h2 { font-size: 32px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .cat-grid { grid-template-columns: 1fr; }
+  .promo-banner { flex-direction: column; text-align: center; gap: 20px; padding: 30px 20px; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .topbar-left span.hide-mobile { display: none; }
+}
+
+@media (max-width: 640px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .trust-bar { gap: 30px; }
+  .header-action .label { display: none; }
+  .newsletter-form { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP UTILITY BAR ===== -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <a href="#delivery"><span class="hide-mobile">🚚 Delivery times</span></a>
+      <a href="#downloads"><span class="hide-mobile">⬇ Download centre</span></a>
+      <a href="#support">🎧 Customer service</a>
+      <a href="tel:+251911234567" class="hide-mobile">📞 +251 91 123 4567</a>
+    </div>
+    <div class="topbar-right">
+      <a href="#account">👤 Account</a>
+      <a href="#cart">🛒 Cart</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="site-header">
+  <div class="header-main">
+    <span class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</span>
+    <div class="logo">
+      <h1>Feven's <span>Prints</span></h1>
+      <div class="logo-sub">Addis Ababa's Photo Studio</div>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="What are you looking for? Photo book, calendar, print...">
+    </div>
+    <div class="header-actions">
+      <div class="header-action"><span class="icon">👤</span><span class="label">Login</span></div>
+      <div class="header-action"><span class="icon">🛒</span><span class="label">Cart</span></div>
+      <div class="header-action"><span class="icon">💬</span><span class="label">WhatsApp</span></div>
+    </div>
+  </div>
+
+  <!-- Mega Menu Nav -->
+  <nav class="main-nav">
+    <ul class="nav-list">
+
+      <!-- Photo Books -->
+      <li class="nav-item">
+        <a class="nav-link" href="#photo-books">📚 Photo Books <span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown">
+          <div class="dropdown-head">Photo Books</div>
+          <a href="#photo-book-deluxe">Photo Book Deluxe</a>
+          <a href="#photo-book-premium">Photo Book Premium Photo Paper</a>
+          <a href="#booklet">Booklet <span class="nav-badge">New</span></a>
+          <a href="#photo-book-spiral">Photo Book Spiral</a>
+          <a href="#photo-book-soft">Photo Book Soft</a>
+          <a href="#photo-books" class="show-all">Show all photo books →</a>
+        </div>
+      </li>
+
+      <!-- Wall Decor -->
+      <li class="nav-item">
+        <a class="nav-link" href="#wall-decor">🖼️ Wall Decorations <span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown">
+          <div class="dropdown-head">Wall Decorations</div>
+          <a href="#photo-canvas">Photo canvas</a>
+          <a href="#photo-poster">Photo poster</a>
+          <a href="#aluminium">Aluminium Dibond</a>
+          <a href="#photo-frames">Photo frames</a>
+          <a href="#gallery-print">Gallery Print</a>
+          <a href="#acrylic">Acrylic glass plate</a>
+          <a href="#wall-collage">Photo collage with gallery frame</a>
+          <a href="#photo-poster">Adhesive photo poster</a>
+          <a href="#wall-decor" class="show-all">Show all wall decorations →</a>
+        </div>
+      </li>
+
+      <!-- Photos -->
+      <li class="nav-item">
+        <a class="nav-link" href="#photos">📸 Photos <span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown">
+          <div class="dropdown-head">Photos</div>
+          <a href="#digital-photos">Digital photos</a>
+          <a href="#square-prints">Square prints</a>
+          <a href="#photo-strips">Photo strips</a>
+          <a href="#photo-frames">Photo frames</a>
+          <a href="#booklet">Booklet</a>
+          <a href="#retro-prints">Retro prints</a>
+          <a href="#acrylic-block">Acrylic photo block</a>
+          <a href="#photos" class="show-all">Show all photos →</a>
+        </div>
+      </li>
+
+      <!-- Photo Gifts -->
+      <li class="nav-item">
+        <a class="nav-link" href="#photo-gifts">🎁 Photo Gifts <span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown">
+          <div class="dropdown-subcat">Kitchen & Household</div>
+          <a href="#photo-mug">Photo mug</a>
+          <a href="#photo-tin">Photo tin</a>
+          <a href="#magic-mug">Magic photo mug</a>
+          <a href="#photo-clock">Photo wall clock</a>
+          <div class="dropdown-subcat">Textiles</div>
+          <a href="#photo-pillow">Photo pillow</a>
+          <a href="#photo-towel">Photo towel</a>
+          <a href="#photo-tshirt">Photo T-shirts</a>
+          <a href="#gym-bag">Gym bag & Tote bag</a>
+          <a href="#photo-gifts" class="show-all">Show all photo gifts →</a>
+        </div>
+      </li>
+
+      <!-- Greeting Cards -->
+      <li class="nav-item">
+        <a class="nav-link" href="#greeting-cards">💌 Greeting Cards <span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown">
+          <div class="dropdown-head">Greeting Cards</div>
+          <a href="#wedding-cards">Wedding cards</a>
+          <a href="#birthday-cards">Birthday cards</a>
+          <a href="#thank-you-cards">Thank you cards</a>
+          <a href="#meskel-cards">Meskel cards</a>
+          <a href="#christmas-cards">Christmas / Genna cards</a>
+          <a href="#greeting-cards" class="show-all">Show all greeting cards →</a>
+        </div>
+      </li>
+
+      <!-- Calendars -->
+      <li class="nav-item">
+        <a class="nav-link" href="#calendars">📅 Photo Calendars <span class="dropdown-arrow">▾</span></a>
+        <div class="dropdown">
+          <div class="dropdown-head">Photo Calendars</div>
+          <a href="#wall-calendar">Wall calendar</a>
+          <a href="#desk-calendar">Desk calendar</a>
+          <a href="#family-calendar">Family calendar</a>
+          <a href="#calendars" class="show-all">Show all photo calendars →</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="#new">🆕 New</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-sale" href="#sale">🏷️ Sale</a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#photo-books">Photo Books</a>
+    <a href="#wall-decor">Wall Decorations</a>
+    <a href="#photos">Photos & Prints</a>
+    <a href="#photo-gifts">Photo Gifts</a>
+    <a href="#greeting-cards">Greeting Cards</a>
+    <a href="#calendars">Photo Calendars</a>
+    <a href="#new">New</a>
+    <a href="#sale" style="color:var(--brand-red);font-weight:800;">Sale</a>
+  </div>
+</header>
+
+<!-- ===== HERO CAROUSEL ===== -->
+<div class="hero-wrap">
+  <div class="hero-carousel" id="heroCarousel">
+    <div class="hero-slides" id="heroSlides">
+
+      <!-- Slide 1: Wedding season offer -->
+      <div class="hero-slide" style="background:#fdf6f6;">
+        <div class="hero-content" style="margin-left:3%;">
+          <span class="hero-badge-offer">Wedding Season Special</span>
+          <h2>Up to<br>30% off<br><span style="color:var(--brand-red);">Photo Books</span></h2>
+          <p>Keep your memories in covers — capture your special day in a beautiful Deluxe photo book and share it with friends & family.</p>
+          <a href="#photo-books" class="hero-cta">Design your photo book →</a>
+        </div>
+        <div class="hero-image-side">
+          <img src="images/feven_hero_photobook.jpg" alt="Feven's Prints photo book">
+        </div>
+      </div>
+
+      <!-- Slide 2: Calendars -->
+      <div class="hero-slide" style="background:#f0f7fa;">
+        <div class="hero-content" style="margin-left:3%;">
+          <span class="hero-badge-offer" style="background:#ffb800;">Ethiopian New Year</span>
+          <h2>Photo Calendars<br>from <span style="color:var(--brand-red);">ETB 990</span></h2>
+          <p>From Enkutatash to Meskel — a beautiful 2027 calendar with your family's best moments gives joy all year round.</p>
+          <a href="#calendars" class="hero-cta">Create a calendar →</a>
+        </div>
+        <div class="hero-image-side">
+          <img src="images/feven_hero_calendar.jpg" alt="Feven's Prints photo calendar">
+        </div>
+      </div>
+
+      <!-- Slide 3: Wall decorations -->
+      <div class="hero-slide" style="background:#f5f2eb;">
+        <div class="hero-content" style="margin-left:3%;">
+          <span class="hero-badge-offer">Wall Art Special</span>
+          <h2>Wall Decorations<br>from <span style="color:var(--brand-red);">ETB 1,450</span></h2>
+          <p>Save your best moments in breathtaking canvas, aluminium or acrylic prints that turn your walls into galleries.</p>
+          <a href="#wall-decor" class="hero-cta">Explore wall art →</a>
+        </div>
+        <div class="hero-image-side">
+          <img src="images/feven_canvas.jpg" alt="Feven's Prints canvas wall art">
+        </div>
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button class="carousel-arrow prev" onclick="moveSlide(-1)">‹</button>
+    <button class="carousel-arrow next" onclick="moveSlide(1)">›</button>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</div>
+
+<!-- ===== OFFER BAR ===== -->
+<div class="offer-bar">
+  🔥 Wedding season is here — up to 30% off photo books │ Free Addis delivery on orders over ETB 2,000 with code <a href="#offers"><strong>FEVEN10</strong></a>
+</div>
+
+
+<div class="container">
+
+  <!-- ===== MAIN CATEGORY SECTION ===== -->
+  <div class="section-head">
+    <h2>Popular photo products</h2>
+    <a href="#all" class="see-all">See all →</a>
+  </div>
+
+  <!-- Category tiles -->
+  <div class="cat-grid" id="photo-books">
+
+    <!-- Photo Books -->
+    <a href="#photo-books" class="cat-tile">
+      <div class="img-wrap">
+        <img src="images/feven_photobooks_collection.jpg" alt="Feven's Prints photo books">
+        <span class="discount-ribbon">UP TO 30% OFF</span>
+      </div>
+      <div class="tile-body">
+        <div class="tile-title">Photo Books</div>
+        <div class="tile-desc">Keep your memories in covers, share them with friends and family.</div>
+        <div class="price-row"><span class="price">from ETB 1,450</span><span class="price-old">ETB 2,050</span></div>
+      </div>
+    </a>
+
+    <!-- Photo Calendars -->
+    <a href="#calendars" class="cat-tile">
+      <div class="img-wrap">
+        <img src="images/feven_hero_calendar.jpg" alt="Feven's Prints photo calendars">
+        <span class="discount-ribbon">UP TO 30% OFF</span>
+      </div>
+      <div class="tile-body">
+        <div class="tile-title">Photo Calendars</div>
+        <div class="tile-desc">Show off your best moments. A handy calendar gives joy every month!</div>
+        <div class="price-row"><span class="price">from ETB 990</span></div>
+      </div>
+    </a>
+
+    <!-- Wall Decor -->
+    <a href="#wall-decor" class="cat-tile">
+      <div class="img-wrap">
+        <img src="images/feven_canvas.jpg" alt="Feven's Prints wall decorations">
+        <span class="new-ribbon">TEST WINNER QUALITY</span>
+      </div>
+      <div class="tile-body">
+        <div class="tile-title">Wall Decorations</div>
+        <div class="tile-desc">Save your best moments in canvas, aluminium & acrylic wall displays.</div>
+        <div class="price-row"><span class="price">from ETB 1,450</span><span class="price-old">ETB 1,650</span></div>
+      </div>
+    </a>
+
+    <!-- Greeting Cards -->
+    <a href="#greeting-cards" class="cat-tile">
+      <div class="img-wrap">
+        <img src="images/feven_greetingcards.jpg" alt="Feven's Prints greeting cards">
+        <span class="discount-ribbon">MESKEL SALE</span>
+      </div>
+      <div class="tile-body">
+        <div class="tile-title">Greeting Cards</div>
+        <div class="tile-desc">Make someone happy with a card. Lots of templates for every occasion.</div>
+        <div class="price-row"><span class="price">from ETB 150</span></div>
+      </div>
+    </a>
+
+    <!-- Photo Gifts -->
+    <a href="#photo-gifts" class="cat-tile">
+      <div class="img-wrap">
+        <img src="images/feven_mug.jpg" alt="Feven's Prints photo gifts">
+        <span class="discount-ribbon">GIFT SEASON</span>
+      </div>
+      <div class="tile-body">
+        <div class="tile-title">Photo Gifts</div>
+        <div class="tile-desc">Mugs, pillows, T-shirts & more — personalize the perfect present.</div>
+        <div class="price-row"><span class="price">from ETB 350</span></div>
+      </div>
+    </a>
+
+    <!-- Wall Collage -->
+    <a href="#wall-collage" class="cat-tile">
+      <div class="img-wrap">
+        <img src="images/feven_wallcollage.jpg" alt="Feven's Prints wall collage">
+        <span class="new-ribbon">POPULAR</span>
+      </div>
+      <div class="tile-body">
+        <div class="tile-title">Photo Collages & Gallery Frames</div>
+        <div class="tile-desc">A stunning gallery wall from your favourite moments.</div>
+        <div class="price-row"><span class="price">from ETB 2,200</span></div>
+      </div>
+    </a>
+  </div>
+
+  <!-- ===== PROMO BANNER ===== -->
+  <div class="promo-banner">
+    <div>
+      <div style="font-weight:800;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--yellow-light);margin-bottom:6px;">Free Addis delivery</div>
+      <h2 style="font-size:32px;font-weight:900;line-height:1.2;margin-bottom:8px;">Your memories − <br>ready in 48 hours</h2>
+      <p style="opacity:0.9;max-width:380px;">Use code <strong>FEVEN10</strong> for free delivery on photo book & calendar orders over ETB 2,000.</p>
+      <div class="promo-code">FEVEN10</div>
+    </div>
+    <div class="promo-visual">
+      <img src="images/feven_photobook.jpg" alt="Feven's Prints promo">
+    </div>
+  </div>
+
+  <!-- ===== WALL DECOR BAND ===== -->
+  <div class="section-head" id="wall-decor">
+    <h2>Wall decorations people love</h2>
+    <a href="#wall-decor" class="see-all">See all →</a>
+  </div>
+  <div class="band">
+    <div class="band-card">
+      <div class="band-img"><img src="images/feven_canvas.jpg" alt="Photo canvas"></div>
+      <h3>Photo Canvas</h3>
+      <p>Premium stretched canvas prints that make any photo gallery-ready.</p>
+      <div class="price-row"><span class="price">from ETB 1,450</span></div>
+    </div>
+    <div class="band-card">
+      <div class="band-img"><img src="images/feven_aluminium.jpg" alt="Aluminium print"></div>
+      <h3>Aluminium Dibond</h3>
+      <p>Striking metallic prints with exceptional colour depth and durability.</p>
+      <div class="price-row"><span class="price">from ETB 2,400</span></div>
+    </div>
+    <div class="band-card">
+      <div class="band-img"><img src="images/feven_wallcollage.jpg" alt="Gallery collage"></div>
+      <h3>Photo Collier with Gallery Frame</h3>
+      <p>Turn three of your best memories into one stunning wall display.</p>
+      <div class="price-row"><span class="price">from ETB 2,200</span></div>
+    </div>
+    <div class="band-card">
+      <div class="band-img"><img src="images/feven_prints.jpg" alt="Framed prints"></div>
+      <h3>Framed Photos & Prints</h3>
+      <p>Classic frames in various sizes for the moments that matter most.</p>
+      <div class="price-row"><span class="price">from ETB 180</span></div>
+    </div>
+  </div>
+
+  <!-- ===== PHOTO GIFTS BAND ===== -->
+  <div class="section-head" id="photo-gifts">
+    <h2>Great gift ideas</h2>
+    <a href="#photo-gifts" class="see-all">See all →</a>
+  </div>
+  <div class="band">
+    <div class="band-card">
+      <div class="band-img"><img src="images/feven_mug.jpg" alt="Photo mug"></div>
+      <h3>Photo Mug</h3>
+      <p>Start every morning with a favourite face on your cup.</p>
+      <div class="price-row"><span class="price">from ETB 350</span></div>
+    </div>
+    <div class="band-card">
+      <div class="band-img"><img src="images/feven_pillow.jpg" alt="Photo pillow"></div>
+      <h3>Photo Pillow</h3>
+      <p>Cosy custom pillows that bring warmth and memories to any sofa.</p>
+      <div class="price-row"><span class="price">from ETB 680</span></div>
+    </div>
+    <div class="band-card">
+      <div class="band-img"><img src="images/feven_tshirt.jpg" alt="Photo t-shirt"></div>
+      <h3>Photo T-Shirts</h3>
+      <p>Wear your favourite photo — perfect for family, team & events.</p>
+      <div class="price-row"><span class="price">from ETB 550</span></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== HOW IT WORKS ===== -->
+<div class="steps-section">
+  <div class="container">
+    <h2>How it works</h2>
+    <p class="steps-sub">Creating your personalised photo products with Feven's Prints is simple — no design skills needed.</p>
+    <div class="steps-grid">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <h3>Choose your product</h3>
+        <p>Browse photo books, wall art, calendars, gifts & more — pick your favourite.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <h3>Upload & customise</h3>
+        <p>Send us your photos on WhatsApp, visit our studio in Addis Ababa, or use our easy online templates.</p>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <h3>Receive in 48h</h3>
+        <p>We professionally print & deliver to your door across Addis Ababa within 48 hours.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ===== TRUST BAR ===== -->
+  <div class="trust-bar">
+    <div class="trust-item"><span class="t-icon">👍</span> Test Winner Quality</div>
+    <div class="trust-item"><span class="t-icon">🚀</span> 48-Hour Delivery</div>
+    <div class="trust-item"><span class="t-icon">💬</span> WhatsApp Support</div>
+    <div class="trust-item"><span class="t-icon">🛡️</span> Satisfaction Guaranteed</div>
+  </div>
+
+  <!-- ===== OFFERS / DEALS BOX ===== -->
+  <div class="offers-box" id="offers">
+    <h3>💰 Current offers — valid until 30.9.2026</h3>
+    <div class="offer-row">
+      <div class="offer-cell">
+        <div class="offer-discount">-30<span>%</span></div>
+        <div class="offer-label">Photo books</div>
+        <div class="offer-small">On all Photo book formats (Deluxe, Premium, Spiral, Soft)</div>
+      </div>
+      <div class="offer-cell">
+        <div class="offer-discount">-20<span>%</span></div>
+        <div class="offer-label">Photo calendars & wall art</div>
+        <div class="offer-small">On all calendar sizes & photo canvas / posters</div>
+      </div>
+      <div class="offer-cell">
+        <div class="offer-discount">-15<span>%</span></div>
+        <div class="offer-label">Photo gifts & greeting cards</div>
+        <div class="offer-small">Mugs, pillows, T-shirts, coasters & all greeting cards</div>
+      </div>
+    </div>
+    <div class="offer-row">
+      <div class="offer-cell">
+        <div class="offer-discount">-50<span>%</span></div>
+        <div class="offer-label">Volume discount on photo prints</div>
+        <div class="offer-small">1-49 pcs from ETB 30 · 50-99 pcs from ETB 20 · 100+ pcs from ETB 15</div>
+      </div>
+      <div class="offer-cell" style="background:#fffef0;border-color:var(--yellow-light);">
+        <div style="font-size:13px;font-weight:800;color:var(--teal-dark);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">🚚 Free Addis Ababa delivery</div>
+        <div style="font-size:16px;font-weight:700;">on all photo orders with code <span style="background:var(--yellow-light);padding:2px 8px;border-radius:6px;font-weight:900;letter-spacing:1px;">FEVEN10</span></div>
+        <div class="offer-small">when the order value is min. ETB 2,000. Cannot be combined with other offers. Delivery to other Ethiopian cities from ETB 150.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NEWSLETTER ===== -->
+  <div class="newsletter">
+    <h2>Get 10% off your first order</h2>
+    <p>Join our newsletter for exclusive offers, seasonal promotions & new product drops.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault();alert('🎉 Thank you for subscribing! Your 10% code is FEVEN10.')">
+      <input type="email" placeholder="Your email address" required>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col about">
+        <div class="logo-alt">Feven's <span>Prints</span></div>
+        <p>Addis Ababa's trusted photo studio. We turn your favourite memories into beautiful, lasting photo products — photo books, wall art, calendars, prints & gifts.</p>
+        <p style="font-weight:700;color:#fff;">📍 Bole Road, Addis Ababa, Ethiopia</p>
+        <p style="font-weight:700;color:#fff;">📞 +251 91 123 4567</p>
+        <p style="font-weight:700;color:#fff;">✉️ hello@fevensprints.et</p>
+      </div>
+      <div class="footer-col">
+        <h4>Products</h4>
+        <ul>
+          <li><a href="#photo-books">Photo Books</a></li>
+          <li><a href="#calendars">Photo Calendars</a></li>
+          <li><a href="#wall-decor">Wall Decorations</a></li>
+          <li><a href="#photo-gifts">Photo Gifts</a></li>
+          <li><a href="#greeting-cards">Greeting Cards</a></li>
+          <li><a href="#photos">Photos & Prints</a></li>
+          <li><a href="#sale" style="color:var(--brand-red);">Sale</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <ul>
+          <li><a href="#support">Contact us</a></li>
+          <li><a href="#delivery">Delivery information</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#returns">Returns & refunds</a></li>
+          <li><a href="#terms">Terms & conditions</a></li>
+          <li><a href="#privacy">Privacy policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About us</h4>
+        <ul>
+          <li><a href="#about">Our story</a></li>
+          <li><a href="#studio">Visit our studio</a></li>
+          <li><a href="#quality">Quality promise</a></li>
+          <li><a href="#careers">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Follow us</h4>
+        <ul>
+          <li><a href="#">📸 Instagram</a></li>
+          <li><a href="#">📘 Facebook</a></li>
+          <li><a href="#">▶️ TikTok</a></li>
+          <li><a href="#">💬 WhatsApp</a></li>
+          <li><a href="#">▶️ YouTube</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Feven's Prints. All rights reserved. Addis Ababa, Ethiopia 🇪🇹</div>
+      <div class="footer-payments">
+        <span class="pay-badge">Telebirr</span>
+        <span class="pay-badge">CBE Birr</span>
+        <span class="pay-badge">Amole</span>
+        <span class="pay-badge">Cash</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ===== HERO CAROUSEL =====
+let currentSlide = 0;
+const slides = document.querySelectorAll('.hero-slide');
+const totalSlides = slides.length;
+const dotsContainer = document.getElementById('carouselDots');
+const slidesWrapper = document.getElementById('heroSlides');
+
+// Create dots
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement('button');
+  dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+  dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+  dot.addEventListener('click', () => goToSlide(i));
+  dotsContainer.appendChild(dot);
+}
+const dots = document.querySelectorAll('.carousel-dot');
+
+function goToSlide(n) {
+  currentSlide = ((n % totalSlides) + totalSlides) % totalSlides;
+  slidesWrapper.style.transform = 'translateX(-' + (currentSlide * 100) + '%)';
+  dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+function moveSlide(dir) { goToSlide(currentSlide + dir); }
+
+// Auto-advance every 6 seconds
+setInterval(() => goToSlide(currentSlide + 1), 6000);
+
+// ===== MOBILE MENU =====
+function toggleMobileMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
